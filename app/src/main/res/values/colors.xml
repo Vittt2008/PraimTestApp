@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="praim_blue" type="color">#3f51b5</item>
+    <item name="praim_dark_blue" type="color">#283593</item>
+    <item name="praim_pink" type="color">#e91e63</item>
+</resources>

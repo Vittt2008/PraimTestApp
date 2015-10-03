@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Praim Test App</string>
+    <string name="score">"Score: "</string>
+    <string name="level">"Level: "</string>
+    <string name="score_per_click">"Score Per Click: "</string>
+    <string name="question">"?"</string>
+    <string name="game_over">Вы прошли игру</string>
+    <string name="new_game">Начать заново</string>
+    <string name="list_of_levels">"List of Levels"</string>
+</resources>

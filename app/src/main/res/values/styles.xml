@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.Praim.App" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/praim_blue</item>
+        <item name="colorPrimaryDark">@color/praim_dark_blue</item>
+        <item name="colorAccent">@color/praim_pink</item>
+    </style>
+</resources>
