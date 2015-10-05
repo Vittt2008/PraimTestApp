@@ -14,7 +14,7 @@ public class DownloadHelper {
 
     public static ILevelsDownload getInstance() {
         if (sDownloader == null)
-            sDownloader = new RestAdapter.Builder().setEndpoint(URL).setLogLevel(RestAdapter.LogLevel.FULL).build().create(ILevelsDownload.class);
+            sDownloader = new RestAdapter.Builder().setEndpoint(URL)/*.setLogLevel(RestAdapter.LogLevel.FULL)*/.build().create(ILevelsDownload.class);
         return sDownloader;
     }
 }

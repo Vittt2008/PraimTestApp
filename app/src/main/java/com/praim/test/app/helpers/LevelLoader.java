@@ -22,8 +22,13 @@ public class LevelLoader extends AsyncTaskLoader<ArrayList<Level>> {
 
     @Override
     public ArrayList<Level> loadInBackground() {
-        if (mLevels == null)
+        if ((mLevels != null) && (mLevels.size() > 0))
+            return mLevels;
+        try {
             mLevels = DownloadHelper.getInstance().downloadLevels();
-        return mLevels;
+            return mLevels;
+        } catch (Exception exc) {
+            return new ArrayList<>();
+        }
     }
 }

@@ -7,4 +7,6 @@
     <string name="game_over">Вы прошли игру</string>
     <string name="new_game">Начать заново</string>
     <string name="list_of_levels">"List of Levels"</string>
+    <string name="download_error">Ошибка загрузки данных об уровнях</string>
+    <string name="ok">ОК</string>
 </resources>

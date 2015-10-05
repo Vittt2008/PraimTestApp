@@ -3,6 +3,7 @@ package com.praim.test.app.fragment;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
@@ -50,8 +51,12 @@ public class FragmentGame extends Fragment implements IOpenLevelsActivity, Loade
             getLoaderManager().initLoader(0, null, this);
         } else {
             mModel = (GameModel) savedInstanceState.getSerializable(MODEL);
-            restoreAndBindModel();
-            changeUI(false);
+            if (mModel != null) {
+                restoreAndBindModel();
+                changeUI(false);
+            } else {
+                showSnackbar();
+            }
         }
 
     }
@@ -65,7 +70,8 @@ public class FragmentGame extends Fragment implements IOpenLevelsActivity, Loade
     @Override
     public void onStop() {
         super.onStop();
-        saveModel();
+        if (mModel != null)
+            saveModel();
     }
     //endregion
 
@@ -92,9 +98,13 @@ public class FragmentGame extends Fragment implements IOpenLevelsActivity, Loade
 
     @Override
     public void onLoadFinished(Loader<ArrayList<Level>> loader, ArrayList<Level> data) {
-        mModel = new GameModel(data);
-        restoreAndBindModel();
-        changeUI(true);
+        if (data.size() > 0) {
+            mModel = new GameModel(data);
+            restoreAndBindModel();
+            changeUI(true);
+        } else {
+            showSnackbar();
+        }
     }
 
     @Override
@@ -164,5 +174,14 @@ public class FragmentGame extends Fragment implements IOpenLevelsActivity, Loade
             mBinding.tvLevel.setAlpha(1);
             mBinding.tvScore.setAlpha(1);
         }
+    }
+
+    private void showSnackbar() {
+        Snackbar.make(mBinding.getRoot(), R.string.download_error, Snackbar.LENGTH_SHORT).setAction(R.string.ok, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        }).show();
     }
 }
